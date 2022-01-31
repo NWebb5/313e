@@ -51,6 +51,7 @@ def create_spiral(n):
                 x += 1
                 p1[x][y] = filler
                 filler += 1
+
         else:
             for j in range(i):
                 y -= 1
@@ -153,25 +154,33 @@ def sum_adjacent_numbers(spiral, n):
 def main():
 
     # read the input file
-    input_file = open("spiral.in", "r")
-    dimension = input_file.readline()
+    #input_file = open("spiral.in", "r")
+    #dimension = input_file.readline()
+    dimension = input()
 
     # create the spiral
     spiral = create_spiral(int(dimension))
 
-    line = input_file.readline()
+    #line = input_file.readline()
 
-    while line:
-        # add the adjacent numbers
-        temp_total = sum_adjacent_numbers(spiral, int(line))
+    # while line:
+    #     # add the adjacent numbers
+    #     temp_total = sum_adjacent_numbers(spiral, int(line))
 
-        # print the result
-        print(temp_total)
-        line = input_file.readline()
+    #     # print the result
+    #     print(temp_total)
+    #     line = input_file.readline()
 
-    # print the result
-    input_file.close()
-    print()
+    # # print the result
+    # input_file.close()
+    # print()
+
+    try:
+        while True:
+            s = input()
+            print(sum_adjacent_numbers(spiral, int(s)))
+    except EOFError:
+        pass
 
 
 if __name__ == "__main__":
