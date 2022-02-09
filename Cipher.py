@@ -66,7 +66,28 @@ def encrypt(strng):
 #        and digits
 # Output: function returns an encrypted string 
 def decrypt ( strng ):
-	pass
+  size = math.ceil(math.sqrt(len(strng)))
+  while len(strng) < size ** 2:
+    strng = strng + "*"
+
+  matrix = []
+  for i in range(len(strng)):
+    if i % size == 0:
+      ch = strng[i + size]
+      p1 = []
+      for j in ch:
+        p1.append(j)
+      matrix.append(p1)
+
+  for i in range(0, size/2):
+    for j in range(i, size - i - 1):
+      holder = matrix[i][j] #this is the current index
+
+      matrix[i][j] = matrix[j][size - i - 1] #moving from 
+      matrix[j][size - i - 1] = matrix[size - i - 1][size - j - 1]
+      matrix[size - i - 1][size - j - 1] = matrix[size - j - 1][i]
+
+      matrix[size - j - 1][i] = holder
 
 def main():
 
