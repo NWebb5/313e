@@ -50,7 +50,7 @@ def encrypt(strng):
 			p1[size - i - 1][size - j - 1] = p1[j][size - i - 1]
 			p1[j][size - i - 1] = temp
 
-	encrypted_string = ""
+  encrypted_string = ""
 
 	# traverses through matrix to record the encrypted string
 	for i in range(size):
@@ -88,6 +88,18 @@ def decrypt ( strng ):
       matrix[size - i - 1][size - j - 1] = matrix[size - j - 1][i]
 
       matrix[size - j - 1][i] = holder
+  
+  encrypted_string = ""
+
+  for i in range(size):
+	  for j in range(size):
+		  if matrix[i][j] == "*":
+        continue
+      else:
+        encrypted_string += p1[i][j]
+    
+  return encrypted_string
+
 
 def main():
 
