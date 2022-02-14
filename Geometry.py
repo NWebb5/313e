@@ -19,6 +19,7 @@
 #  Date Last Modified:
 
 import math
+import re
 
 class Point (object):
   # constructor with default values
@@ -58,6 +59,7 @@ class Sphere (object):
     self.y = y
     self.z = z
     self.radius = radius
+    self.center = Point(x, y, z)
 
   # returns string representation of a Sphere of the form:
   # Center: (x, y, z), Radius: value
@@ -101,7 +103,17 @@ class Sphere (object):
   # a_cube is a Cube object
   # returns a Boolean
   def is_inside_cube (self, a_cube):
+    cube_verticies = []
+    half_points = [(-.5, .5, .5),
+    (-.5, -.5, .5), (-.5, -.5, -.5), (.5, -.5, .5), (.5, .5, -.5), (.5, -.5, -.5), (.5, -.5, -.5), (.5, .5, .5)]
+    for half_points in half_points:
+      cube_verticies = cube_verticies.append(Point(a_cube.x + (half_points[0] * a_cube.side), a_cube.y + (half_points[1] * a_cube.side), a_cube.z + (half_points[2] * a_cube.side)))
 
+    for i in range(0,8):
+      if self.center.distance(half_points[i]) <= self.radius:
+        return True
+    return False
+      
   # determine if a Cylinder is strictly inside this Sphere
   # a_cyl is a Cylinder object
   # returns a Boolean
