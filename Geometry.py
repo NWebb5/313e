@@ -47,10 +47,7 @@ class Point (object):
   # other is a Point object
   # returns a Boolean
   def __eq__ (self, other):
-    if (self.is_equal(self.x, other.x) and self.is_equal(self.y, other.y)):
-      return True
-    else:
-      return False
+    return self.is_equal(self.x, other.x) and self.is_equal(self.y, other.y) and self.is_equal(self.z, other.z)
 
 class Sphere (object):
   # constructor with default values
@@ -89,13 +86,7 @@ class Sphere (object):
   # other is a Sphere object
   # returns a Boolean
   def is_inside_sphere (self, other):
-    if other.radius < self.radius:
-      if other.x < self.x and other.y < self.y and other.z < self.z:
-        return True
-      else:
-        return False
-    else:
-      return False
+    return self.center.distance(other.center) + other.radius < self.radius
 
   # determine if a Cube is strictly inside this Sphere
   # determine if the eight corners of the Cube are strictly
@@ -118,13 +109,19 @@ class Sphere (object):
   # a_cyl is a Cylinder object
   # returns a Boolean
   def is_inside_cyl (self, a_cyl):
-
+    pass
   # determine if another Sphere intersects this Sphere
   # other is a Sphere object
   # two spheres intersect if they are not strictly inside
   # or not strictly outside each other
   # returns a Boolean
   def does_intersect_sphere (self, other):
+    outside_sphere =  other.radius + self.radius < self.center.distance(other)
+
+    return not self.is_inside_sphere(other) and not outside_sphere
+
+
+    
 
   # determine if a Cube intersects this Sphere
   # the Cube and Sphere intersect if they are not
