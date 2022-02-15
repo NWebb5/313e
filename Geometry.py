@@ -88,7 +88,7 @@ class Sphere(object):
     # a_cube is a Cube object
     # returns a Boolean
     def is_inside_cube(self, a_cube):
-        pass
+        return
 
     # determine if a Cylinder is strictly inside this Sphere
     # a_cyl is a Cylinder object
