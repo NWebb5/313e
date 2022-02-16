@@ -314,7 +314,11 @@ def main():
 
   # print if the distance of p from the origin is greater
   # than the distance of q from the origin
-
+  origin = Point(0, 0, 0)
+  if p_coord.distance(origin) > q_coord.distance(origin):
+    print('Distance of Point p from the origin is greater than the distance of Point q from the origin')
+  else:
+    print('Distance of Point p from the origin is not greater than the distance of Point q from the origin')
 
   # print if Point p is inside sphereA
   if sphereA.is_inside_point(point_p):
