@@ -308,7 +308,7 @@ def main():
             cubeA = Cube(cubeA_info[0], cubeA_info[1], cubeA_info[2], cubeA_info[3])
 
             # read the coordinates of the center and side of cubeB
-            for i in range(len(cubaB_info)):
+            for i in range(len(cubeB_info)):
                 cubeB_info[i] = float(cubeB_info[i])
 
             # create a Cube object
